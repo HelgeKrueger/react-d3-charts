@@ -1,14 +1,14 @@
 {
-  "name": "react-d3-helper",
-  "version": "1.0.0",
+  "name": "react-d3-charts",
+  "version": "0.1.0",
   "description": "",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "scripts": {
-    "build": "npx esbuild  --external:node_modules/* --bundle --loader:.js=jsx --minify src/index.js  --outdir=dist",
+    "build": "rm -rf dist; node build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Helge Krueger",
   "license": "ISC",
   "peerDependencies": {
     "@emotion/react": "^11.10.5",
@@ -16,9 +16,10 @@
     "@mui/icons-material": "^5.10.14",
     "@mui/material": "^5.10.14",
     "d3": "^7.6.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
+  "dependencies": {},
   "devDependencies": {
     "esbuild": "^0.15.14"
   }

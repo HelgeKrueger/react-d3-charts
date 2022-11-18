@@ -2,6 +2,7 @@ import { Download, Fullscreen } from "@mui/icons-material";
 import { Box, IconButton, Modal } from "@mui/material";
 import * as d3 from "d3";
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import saveSvgAsPng from "save-svg-as-png";
 
 const D3Wrapper = (props) => {
   const { width, height, renderer, data } = props;
@@ -23,6 +24,12 @@ const D3Wrapper = (props) => {
     renderer(svg, data, width * 2, height * 2, d3);
   });
 
+  const download = () => {
+    if (svgElementRef.current) {
+      saveSvgAsPng.saveSvgAsPng(svgElementRef.current, "plot.png");
+    }
+  };
+
   return (
     <div
       style={{ position: "relative" }}
@@ -40,13 +47,12 @@ const D3Wrapper = (props) => {
         >
           <IconButton
             onClick={() => {
-              console.log("Opening");
               setOpen(true);
             }}
           >
             <Fullscreen />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={download}>
             <Download />
           </IconButton>
         </div>
